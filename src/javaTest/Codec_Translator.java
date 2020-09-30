@@ -11,28 +11,20 @@ import java.io.UnsupportedEncodingException;
 
 public class Codec_Translator {
 	static void charsetTranslate(File fileFrom, File fileTo, String codecInfoFrom, String codecInfoTo){		
-		String[] codecParaIn, codecParaOut;
 		String inputChar = "MS950", outputChar = "UTF-8";
 		int charLen = 2;
 		
+		/*非預設時*/
 		if(codecInfoFrom.equals("") != true && codecInfoTo.equals("") != true) {
-			codecParaIn = codecInfoFrom.split(",");
-			/*拆解字串成參數*/
-			for(int i = 0; i < codecParaIn.length; i++ ) {
-				if(i == 0) {
-					inputChar = codecParaIn[0];
-				}
-				else {
-					charLen = Integer.parseInt(codecParaIn[1]);
-				}
+			if(codecInfoFrom.equals("MS950") == true || codecInfoFrom.equals("GBK") == true) {
+				charLen = 2;
 			}
-			codecParaOut = codecInfoTo.split(",");
-			/*拆解字串成參數*/
-			for(int i = 0; i < codecParaOut.length; i++ ) {
-				if(i == 0) {
-					outputChar = codecParaOut[0];
-				}
-			}	
+			else if(codecInfoFrom.equals("UTF-8") == true) {
+				charLen = 3;
+			}
+			/*編碼賦值*/
+			inputChar = codecInfoFrom;
+			outputChar = codecInfoTo;
 		}
 		
 		/*開始執行*/
@@ -44,7 +36,7 @@ public class Codec_Translator {
 			){
 				int count;
 				char [] charSpace;
-				/*MS950 2 bit, GBK 2 bit, UTF-8 3 bit, UTF-8 4 bit*/
+				/*MS950 2 bit, GBK 2 bit, UTF-8 3 bit*/
 				charSpace = new char[charLen];
 				/*讀到不回傳-1代表還有資料*/
 				while((count = isr0.read(charSpace)) != -1){

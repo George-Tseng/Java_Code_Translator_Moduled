@@ -21,10 +21,9 @@ public class CodecMode {
 	private CodecMode() {
 		dataMap = new HashMap<>();
 		/*塞入參數資料*/
-		dataMap.put("1", "MS950,2");
-		dataMap.put("2", "GBK,2");
-		dataMap.put("3", "UTF-8,3");
-		dataMap.put("4", "UTF-8,4");
+		dataMap.put("1", "MS950");
+		dataMap.put("2", "GBK");
+		dataMap.put("3", "UTF-8");
 	}
 	
 	/*Map中Value的getter*/
