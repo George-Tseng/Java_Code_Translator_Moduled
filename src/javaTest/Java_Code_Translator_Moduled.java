@@ -132,7 +132,6 @@ public class Java_Code_Translator_Moduled {
 		/*Part 6 開始轉換*/
 		try {
 			Codec_Translator.charsetTranslate(inputFile, outputFile, modeParas[0], modeParas[1]);
-			System.out.println("轉換工作已完成，檔案路徑為："+outputFile+"\n檔案採用的編碼為："+modeParas[1]);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
