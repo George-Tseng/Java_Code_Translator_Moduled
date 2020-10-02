@@ -226,24 +226,22 @@ public class Java_Code_Translator_Moduled {
 			}
 			else {
 				/*參數用陣列*/
-				String [] convertParas, modeParas;
+				String [] convertParas;
 				convertParas = codecString.split(",");
-				/*用String.endsWith("String")來排除(1,)這種會觸發NullPointerException的輸入字串*/
-				if(convertParas.length == 1 && codecString.endsWith(",") == false) {
-					modeParas = new String[1];
-					if(modeParas[0].equals("1") == true) {
+				if(convertParas.length == 1) {
+					if(convertParas[0].equals("1") == true) {
 						codecInfoTo = codec.getCodec("1");
 						/*也會使用codecInfoTo參數下*/
 						methodParas += 20;
 						keepRun11 = false;
 					}
-					else if(modeParas[0].equals("2") == true) {
+					else if(convertParas[0].equals("2") == true) {
 						codecInfoTo = codec.getCodec("2");
 						/*也會使用codecInfoTo參數下*/
 						methodParas += 20;
 						keepRun11 = false;
 					}
-					else if(modeParas[0].equals("3") == true) {
+					else if(convertParas[0].equals("3") == true) {
 						codecInfoTo = codec.getCodec("3");
 						/*也會使用codecInfoTo參數下*/
 						methodParas += 20;
@@ -254,41 +252,40 @@ public class Java_Code_Translator_Moduled {
 					}
 				}
 				else if(convertParas.length == 2) {
-					modeParas = new String[2];
 					int countTmp = 0;
 					/*支援的組合*/
-					if(modeParas[0].equals("1") == true) {
+					if(convertParas[0].equals("1") == true) {
 						codecInfoFrom = codec.getCodec("1");
 						countTmp++;
-						if(modeParas[0].equals("2") == true) {
+						if(convertParas[1].equals("2") == true) {
 							codecInfoTo = codec.getCodec("2");
 							countTmp++;
 						}
-						else if(modeParas[0].equals("3") == true) {
+						else if(convertParas[1].equals("3") == true) {
 							codecInfoTo = codec.getCodec("3");
 							countTmp++;
 						}
 					}
-					else if(modeParas[0].equals("2") == true) {	
+					else if(convertParas[0].equals("2") == true) {	
 						codecInfoFrom = codec.getCodec("2");
 						countTmp++;
-						if(modeParas[0].equals("1") == true) {
+						if(convertParas[1].equals("1") == true) {
 							codecInfoTo = codec.getCodec("1");
 							countTmp++;
 						}
-						else if(modeParas[0].equals("3") == true) {
+						else if(convertParas[1].equals("3") == true) {
 							codecInfoTo = codec.getCodec("3");
 							countTmp++;
 						}
 					}
-					else if(modeParas[0].equals("3") == true) {
+					else if(convertParas[0].equals("3") == true) {
 						codecInfoFrom = codec.getCodec("3");
 						countTmp++;
-						if(modeParas[0].equals("1") == true) {
+						if(convertParas[1].equals("1") == true) {
 							codecInfoTo = codec.getCodec("1");
 							countTmp++;
 						}
-						else if(modeParas[0].equals("2") == true) {
+						else if(convertParas[1].equals("2") == true) {
 							codecInfoTo = codec.getCodec("2");
 							countTmp++;
 						}
