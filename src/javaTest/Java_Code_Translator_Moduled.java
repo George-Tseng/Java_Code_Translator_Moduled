@@ -68,14 +68,13 @@ public class Java_Code_Translator_Moduled {
 			System.out.println(appString.getAppString(1010));
 			tmpParas = inputScan.nextLine();
 			
-			if(tmpParas.equals("y") == true || tmpParas.equals("Y") == true) {
+			if(tmpParas.toUpperCase().equals("Y") == true) {
 				keepRun3 = false;
 				keepRun4 = true;
 				/*也會使用outputFile參數下*/
 				methodParas += 100;
 			}
-			else if(tmpParas.equals("") == true || tmpParas.equals("n") == true || 
-					tmpParas.equals("N") == true) {
+			else if(tmpParas.equals("") == true || tmpParas.toUpperCase().equals("N") == true) {
 				keepRun3 = false;
 				keepRun4 = false;
 			}
@@ -109,12 +108,12 @@ public class Java_Code_Translator_Moduled {
 			System.out.println(appString.getAppString(1013));
 			tmpParas = inputScan.nextLine();
 			
-			if(tmpParas.equals("n") == true || tmpParas.equals("N") == true) {
+			if(tmpParas.toUpperCase().equals("N") == true) {
 				keepRun6 = false;
 				/*也會使用directCovered參數下*/
 				methodParas ++;
 			}
-			else if(tmpParas.equals("y") == true || tmpParas.equals("Y") == true) {
+			else if(tmpParas.toUpperCase().equals("Y") == true) {
 				keepRun6 = false;
 				/*也會使用directCovered參數下*/
 				methodParas += 2;
@@ -133,15 +132,14 @@ public class Java_Code_Translator_Moduled {
 			System.out.println(appString.getAppString(1014));
 			tmpParas = inputScan.nextLine();
 			
-			if(tmpParas.equals("y") == true || tmpParas.equals("Y") == true) {
+			if(tmpParas.toUpperCase().equals("Y") == true) {
 				keepRun7 = false;
 				keepRun8 = true;
 				keepRun9 = false;
 				/*也會使用transMode參數下*/
 				methodParas += 10;
 			}
-			else if(tmpParas.equals("") == true || tmpParas.equals("n") == true || 
-					tmpParas.equals("N") == true) {
+			else if(tmpParas.equals("") == true || tmpParas.toUpperCase().equals("N") == true) {
 				keepRun7 = false;
 				keepRun8 = false;
 				keepRun9 = true;
@@ -193,12 +191,11 @@ public class Java_Code_Translator_Moduled {
 				System.out.println(appString.getAppString(1016));
 				tmpParas = inputScan.nextLine();
 					
-				if(tmpParas.equals("y") == true || tmpParas.equals("Y") == true) {
+				if(tmpParas.toUpperCase().equals("Y") == true) {
 					keepRun10 = false;
 					keepRun11 = true;
 				}
-				else if(tmpParas.equals("") == true || tmpParas.equals("n") == true || 
-						tmpParas.equals("N") == true) {
+				else if(tmpParas.equals("") == true || tmpParas.toUpperCase().equals("N") == true) {
 					keepRun10 = false;
 					keepRun11 = false;
 				}
@@ -397,11 +394,10 @@ public class Java_Code_Translator_Moduled {
 	private static void displayInfo(String displayParas, AppString appString){
 		boolean displayInfo;
 		
-		if(displayParas.equals("") == true || displayParas.equals("Y") == true || 
-				displayParas.equals("y") == true) {
+		if(displayParas.equals("") == true || displayParas.toUpperCase().equals("Y") == true) {
 			displayInfo = true;
 		}
-		else if(displayParas.equals("N") == true || displayParas.equals("n") == true) {
+		else if(displayParas.toUpperCase().equals("N") == true) {
 			System.out.println(appString.getAppString(1003));
 			displayInfo = false;
 		}
