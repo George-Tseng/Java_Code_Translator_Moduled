@@ -16,14 +16,13 @@ public class Codec_Translator {
 	static SimpleDateFormat sdf0 = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss_SSS");
 	/*實例*/
 	static CodecMode codec = CodecMode.getInstance();
-	static CodecLen codecLen = CodecLen.getInstance();
 	static AppString appString = AppString.getInstance();
 	
 	/*僅接受"輸入檔案"引數*/
 	static void charsetTranslate(File fileFrom){		
 		String inputChar = codec.getCodec("1"), outputChar = codec.getCodec("3"), outputFileRoute = "";
 		String [] pathSpace;
-		int charLen = codecLen.getCodecLen("1");
+		int charLen = Paras.charLen[0];
 		File fileTo, fileToTmp;
 		
 		/*使用相同路徑，檔名補上編碼*/
@@ -83,7 +82,7 @@ public class Codec_Translator {
 	static void charsetTranslate(File fileFrom, boolean directCovered){		
 		String inputChar = codec.getCodec("1"), outputChar = codec.getCodec("3"), outputFileRoute = "";
 		String [] pathSpace;
-		int charLen = codecLen.getCodecLen("1");
+		int charLen = Paras.charLen[0];
 		File fileTo, fileToTmp;
 		
 		/*使用相同路徑，檔名補上編碼*/
@@ -152,18 +151,18 @@ public class Codec_Translator {
 			case 4:
 			case 3:
 				inputChar = codec.getCodec("3");
-				charLen = codecLen.getCodecLen("3");
+				charLen = Paras.charLen[2];
 				break;
 			case 6:
 			case 2:
 				inputChar = codec.getCodec("2");
-				charLen = codecLen.getCodecLen("2");
+				charLen = Paras.charLen[1];
 				break;
 			case 5:
 			case 1:
 			default:
 				inputChar = codec.getCodec("1");
-				charLen = codecLen.getCodecLen("1");
+				charLen = Paras.charLen[0];
 				break;
 		}
 		switch(transParas) {
@@ -248,18 +247,18 @@ public class Codec_Translator {
 			case 4:
 			case 3:
 				inputChar = codec.getCodec("3");
-				charLen = codecLen.getCodecLen("3");
+				charLen = Paras.charLen[2];
 				break;
 			case 6:
 			case 2:
 				inputChar = codec.getCodec("2");
-				charLen = codecLen.getCodecLen("2");
+				charLen = Paras.charLen[1];
 				break;
 			case 5:
 			case 1:
 			default:
 				inputChar = codec.getCodec("1");
-				charLen = codecLen.getCodecLen("1");
+				charLen = Paras.charLen[0];
 				break;
 		}
 		switch(transParas) {
@@ -335,7 +334,7 @@ public class Codec_Translator {
 	static void charsetTranslate(File fileFrom,  String codecInfoTo){		
 		String inputChar = codec.getCodec("1"), outputChar = codecInfoTo, outputFileRoute = "";
 		String [] pathSpace;
-		int charLen = codecLen.getCodecLen("1");
+		int charLen = Paras.charLen[0];
 		File fileTo, fileToTmp;
 		
 		/*使用相同路徑，檔名補上編碼*/
@@ -395,7 +394,7 @@ public class Codec_Translator {
 	static void charsetTranslate(File fileFrom,  String codecInfoTo, boolean directCovered){		
 		String inputChar = codec.getCodec("1"), outputChar = codecInfoTo, outputFileRoute = "";
 		String [] pathSpace;
-		int charLen = codecLen.getCodecLen("1");
+		int charLen = Paras.charLen[0];
 		File fileTo, fileToTmp;
 		
 		/*使用相同路徑，檔名補上編碼*/
@@ -455,19 +454,19 @@ public class Codec_Translator {
 	static void charsetTranslate(File fileFrom,  String codecInfoFrom, String codecInfoTo){		
 		String inputChar = codecInfoFrom, outputChar = codecInfoTo, outputFileRoute = "";
 		String [] pathSpace;
-		int charLen = codecLen.getCodecLen("1");
+		int charLen = Paras.charLen[0];
 		File fileTo, fileToTmp;
 		
 		/*非預設時*/
 		if(codecInfoFrom.equals("") != true && codecInfoTo.equals("") != true) {
 			if(codecInfoFrom.equals(codec.getCodec("1")) == true) {
-				charLen = codecLen.getCodecLen("1");
+				charLen = Paras.charLen[0];
 			}
 			else if(codecInfoFrom.equals(codec.getCodec("2")) == true) {
-				charLen = codecLen.getCodecLen("2");
+				charLen = Paras.charLen[1];
 			}
 			else if(codecInfoFrom.equals(codec.getCodec("3")) == true) {
-				charLen = codecLen.getCodecLen("3");
+				charLen = Paras.charLen[2];
 			}
 		}
 		
@@ -529,19 +528,19 @@ public class Codec_Translator {
 			boolean directCovered){		
 		String inputChar = codecInfoFrom, outputChar = codecInfoTo, outputFileRoute = "";
 		String [] pathSpace;
-		int charLen = codecLen.getCodecLen("1");
+		int charLen = Paras.charLen[0];
 		File fileTo, fileToTmp;
 		
 		/*非預設時*/
 		if(codecInfoFrom.equals("") != true && codecInfoTo.equals("") != true) {
 			if(codecInfoFrom.equals(codec.getCodec("1")) == true) {
-				charLen = codecLen.getCodecLen("1");
+				charLen = Paras.charLen[0];
 			}
 			else if(codecInfoFrom.equals(codec.getCodec("2")) == true) {
-				charLen = codecLen.getCodecLen("2");
+				charLen = Paras.charLen[1];
 			}
 			else if(codecInfoFrom.equals(codec.getCodec("3")) == true) {
-				charLen = codecLen.getCodecLen("3");
+				charLen = Paras.charLen[2];
 			}
 		}
 		
@@ -602,7 +601,7 @@ public class Codec_Translator {
 	static void charsetTranslate(File fileFrom, File fileTo){		
 		String inputChar = codec.getCodec("1"), outputChar = codec.getCodec("3"), 
 				outputFileRoute = "";
-		int charLen = codecLen.getCodecLen("1");
+		int charLen = Paras.charLen[0];
 		File fileToTmp;
 		
 		/*判讀檔案是否存在，存在則先在檔名後補上編碼格式*/
@@ -665,7 +664,7 @@ public class Codec_Translator {
 	static void charsetTranslate(File fileFrom, File fileTo, boolean displayCovered){		
 		String inputChar = codec.getCodec("1"), outputChar = codec.getCodec("3"), 
 				outputFileRoute = "";
-		int charLen = codecLen.getCodecLen("1");
+		int charLen = Paras.charLen[0];
 		File fileToTmp;
 		
 		/*判讀檔案是否存在，如果存在且不允許覆蓋檔案，則先在檔名後補上編碼格式*/
@@ -737,18 +736,18 @@ public class Codec_Translator {
 			case 4:
 			case 3:
 				inputChar = codec.getCodec("3");
-				charLen = codecLen.getCodecLen("3");
+				charLen = Paras.charLen[2];
 				break;
 			case 6:
 			case 2:
 				inputChar = codec.getCodec("2");
-				charLen = codecLen.getCodecLen("2");
+				charLen = Paras.charLen[1];
 				break;
 			case 5:
 			case 1:
 			default:
 				inputChar = codec.getCodec("1");
-				charLen = codecLen.getCodecLen("1");
+				charLen = Paras.charLen[0];
 				break;
 		}
 		switch(transParas) {
@@ -837,18 +836,18 @@ public class Codec_Translator {
 			case 4:
 			case 3:
 				inputChar = codec.getCodec("3");
-				charLen = codecLen.getCodecLen("3");
+				charLen = Paras.charLen[2];
 				break;
 			case 6:
 			case 2:
 				inputChar = codec.getCodec("2");
-				charLen = codecLen.getCodecLen("2");
+				charLen = Paras.charLen[1];
 				break;
 			case 5:
 			case 1:
 			default:
 				inputChar = codec.getCodec("1");
-				charLen = codecLen.getCodecLen("1");
+				charLen = Paras.charLen[0];
 				break;
 		}
 		switch(transParas) {
@@ -926,7 +925,7 @@ public class Codec_Translator {
 	/*僅接受"輸入檔案"、"輸出檔案"與"輸出格式"引數*/
 	static void charsetTranslate(File fileFrom, File fileTo, String codecInfoTo){		
 		String inputChar = codec.getCodec("1"), outputChar = codecInfoTo, outputFileRoute = "";
-		int charLen = codecLen.getCodecLen("1");
+		int charLen = Paras.charLen[0];
 		File fileToTmp;
 		
 		/*判讀檔案是否存在，存在則先在檔名後補上編碼格式*/
@@ -989,7 +988,7 @@ public class Codec_Translator {
 	static void charsetTranslate(File fileFrom, File fileTo, String codecInfoTo, 
 			boolean directCovered){		
 		String inputChar = codec.getCodec("1"), outputChar = codecInfoTo, outputFileRoute = "";
-		int charLen = codecLen.getCodecLen("1");
+		int charLen = Paras.charLen[0];
 		File fileToTmp;
 		
 		/*判讀檔案是否存在，存在則先在檔名後補上編碼格式*/
@@ -1052,19 +1051,19 @@ public class Codec_Translator {
 	static void charsetTranslate(File fileFrom, File fileTo, String codecInfoFrom, 
 			String codecInfoTo){		
 		String inputChar = codecInfoFrom, outputChar = codecInfoTo, outputFileRoute = "";
-		int charLen = codecLen.getCodecLen("1");
+		int charLen = Paras.charLen[0];
 		File fileToTmp;
 		
 		/*非預設時*/
 		if(codecInfoFrom.equals("") != true && codecInfoTo.equals("") != true) {
 			if(codecInfoFrom.equals(codec.getCodec("1")) == true) {
-				charLen = codecLen.getCodecLen("1");
+				charLen = Paras.charLen[0];
 			}
 			else if(codecInfoFrom.equals(codec.getCodec("2")) == true) {
-				charLen = codecLen.getCodecLen("2");
+				charLen = Paras.charLen[1];
 			}
 			else if(codecInfoFrom.equals(codec.getCodec("3")) == true) {
-				charLen = codecLen.getCodecLen("3");
+				charLen = Paras.charLen[2];
 			}
 		}
 		
@@ -1128,19 +1127,19 @@ public class Codec_Translator {
 	static void charsetTranslate(File fileFrom, File fileTo, String codecInfoFrom, 
 			String codecInfoTo, boolean directCovered){		
 		String inputChar = codecInfoFrom, outputChar = codecInfoTo, outputFileRoute = "";
-		int charLen = codecLen.getCodecLen("1");
+		int charLen = Paras.charLen[0];
 		File fileToTmp;
 		
 		/*非預設時*/
 		if(codecInfoFrom.equals("") != true && codecInfoTo.equals("") != true) {
 			if(codecInfoFrom.equals(codec.getCodec("1")) == true) {
-				charLen = codecLen.getCodecLen("1");
+				charLen = Paras.charLen[0];
 			}
 			else if(codecInfoFrom.equals(codec.getCodec("2")) == true) {
-				charLen = codecLen.getCodecLen("2");
+				charLen = Paras.charLen[1];
 			}
 			else if(codecInfoFrom.equals(codec.getCodec("3")) == true) {
-				charLen = codecLen.getCodecLen("3");
+				charLen = Paras.charLen[2];
 			}
 		}
 		
